@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>annotations</Nullable>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>卡拉彼丘喵语生成器喵</AssemblyName>
+    <RootNamespace>卡拉彼丘喵语生成器喵</RootNamespace>
+    <UseWindowsForms>False</UseWindowsForms>
+    <ApplicationIcon>Assets\AppIcon.ico</ApplicationIcon>
+    <PlatformTarget>x64</PlatformTarget>
+    <Authors>香草味的纳西妲喵(VanillaNahida)</Authors>
+    <Company>香草味的纳西妲喵(VanillaNahida)</Company>
+    <Description>一个用于快捷粘贴随机喵语的小工具喵~</Description>
+    <RepositoryUrl>https://github.com/VanillaNahida/CalabiyauQuotation</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\AppIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="13.7.1" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>
