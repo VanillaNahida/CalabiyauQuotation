@@ -20,6 +20,8 @@
     <PackageProjectUrl>https://github.com/VanillaNahida/CalabiyauQuotation</PackageProjectUrl>
     <Product>卡拉彼丘喵语生成器喵</Product>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <StartupObject>CalabiyauQuotation.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

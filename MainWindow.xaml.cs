@@ -197,7 +197,7 @@ namespace CalabiyauQuotation
             string url = txtDictionaryUrl.Text;
             if (string.IsNullOrEmpty(url))
             {
-                UpdateStatus("请先设置词库地址");
+                UpdateStatus("请先设置词库地址喵！");
                 return;
             }
 
@@ -218,7 +218,7 @@ namespace CalabiyauQuotation
             }
             else
             {
-                UpdateStatus("词库下载失败");
+                UpdateStatus("词库下载失败！");
             }
         }
 
@@ -237,6 +237,7 @@ namespace CalabiyauQuotation
             MessageBox.Show("设置已保存喵", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        // 发送Windows通知
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!_isExit)
@@ -299,6 +300,7 @@ namespace CalabiyauQuotation
             }
         }
 
+        // 托盘菜单图标
         private void TaskbarIcon_TrayRightMouseDown(object sender, RoutedEventArgs e)
         {
             e.Handled = true;

@@ -107,7 +107,7 @@ namespace CalabiyauQuotation.Controls
             
             if (_button != null)
             {
-                _button.Content = "录制";
+                _button.Content = "修改";
             }
 
             if (restoreHotKey)

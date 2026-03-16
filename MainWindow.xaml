@@ -5,6 +5,7 @@
         xmlns:ctrl="clr-namespace:CalabiyauQuotation.Controls"
         Title="喵语生成器 By 香草味的纳西妲喵(VanillaNahida)" Height="471" Width="540"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
         Closing="Window_Closing">
     <Window.Resources>
         <ResourceDictionary>
