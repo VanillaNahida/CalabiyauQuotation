@@ -6,6 +6,7 @@ using System.Windows.Input;
 using CalabiyauQuotation.Models;
 using CalabiyauQuotation.Services;
 using Hardcodet.Wpf.TaskbarNotification;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace CalabiyauQuotation
 {
@@ -242,7 +243,7 @@ namespace CalabiyauQuotation
             {
                 e.Cancel = true;
                 Hide();
-                ShowNotification("喵语生成器", "已最小化到系统托盘");
+                ShowNotification("喵语生成器", "已最小化到系统托盘喵~");
             }
             else
             {
@@ -255,10 +256,19 @@ namespace CalabiyauQuotation
         {
             try
             {
-                taskbarIcon.ShowBalloonTip(title, message, BalloonIcon.Info);
+                ToastNotificationHelper.ShowSimpleToast(title, message);
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"ShowNotification error: {ex.Message}");
+                try
+                {
+                    taskbarIcon.ShowBalloonTip(title, message, Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Info);
+                }
+                catch (Exception innerEx)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Fallback notification error: {innerEx.Message}");
+                }
             }
         }
 
