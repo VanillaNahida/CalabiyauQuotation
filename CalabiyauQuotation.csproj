@@ -22,11 +22,18 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
     <StartupObject>CalabiyauQuotation.App</StartupObject>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\XingHuiNotifation.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Assets\NotifationIcon.png" />
     <Resource Include="Assets\AppIcon.ico" />
+    <Resource Include="Assets\XingHuiNotifation.png" />
   </ItemGroup>
 
   <ItemGroup>

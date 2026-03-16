@@ -7,7 +7,7 @@ namespace CalabiyauQuotation.Models
     public class AppSettings
     {
         public bool EnableAutoDownload { get; set; } = true;
-        public string DictionaryUrl { get; set; } = "https://cdn.xcnahida.cn/files/CalabiYau_text.yml";
+        public string DictionaryUrl { get; set; } = "https://cdn.xcnahida.cn/api/meowQuotes/index.php";
         public string Hotkey { get; set; } = "Ctrl+Alt+P";
         public bool ClearAndPaste { get; set; } = true;
         public bool AutoSend { get; set; } = false;

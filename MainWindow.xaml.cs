@@ -17,6 +17,7 @@ namespace CalabiyauQuotation
         private AppSettings? _originalSettings;
         private bool _hasUnsavedChanges = false;
         private bool _isUpdatingSettings = false;
+        private int _iconState = 0; // 0: AppIcon.ico, 1: XingHuiNotifation.png, 2: NotifationIcon.png
 
         public MainWindow()
         {
@@ -363,6 +364,89 @@ namespace CalabiyauQuotation
             }
             catch
             {
+            }
+        }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                // 切换图标状态
+                _iconState = (_iconState + 1) % 3;
+                
+                // 根据状态设置图标
+                switch (_iconState)
+                {
+                    case 0:
+                        aboutImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("pack://application:,,,/Assets/AppIcon.ico"));
+                        break;
+                    case 1:
+                        aboutImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("pack://application:,,,/Assets/XingHuiNotifation.png"));
+                        break;
+                    case 2:
+                        aboutImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri("pack://application:,,,/Assets/NotifationIcon.png"));
+                        break;
+                }
+                
+                // 发送通知
+                string iconPath = ExtractXingHuiIconToTemp();
+                ToastNotificationHelper.ShowToastWithLogo("星绘", "饱饱窝会一直的看着你……", iconPath);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Image click error: {ex.Message}");
+            }
+        }
+
+        private string ExtractXingHuiIconToTemp()
+        {
+            try
+            {
+                string tempDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "CalabiyauQuotation");
+                if (!System.IO.Directory.Exists(tempDir))
+                {
+                    System.IO.Directory.CreateDirectory(tempDir);
+                }
+
+                string tempIconPath = System.IO.Path.Combine(tempDir, "XingHuiNotifation.png");
+
+                if (System.IO.File.Exists(tempIconPath))
+                {
+                    return tempIconPath;
+                }
+
+                var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+                string resourceName = "CalabiyauQuotation.Assets.XingHuiNotifation.png";
+
+                using (var stream = assembly.GetManifestResourceStream(resourceName))
+                {
+                    if (stream != null)
+                    {
+                        using (var fileStream = System.IO.File.Create(tempIconPath))
+                        {
+                            stream.CopyTo(fileStream);
+                        }
+                        return tempIconPath;
+                    }
+                }
+
+                var uri = new Uri("pack://application:,,,/Assets/XingHuiNotifation.png");
+                var resourceStream = System.Windows.Application.GetResourceStream(uri);
+                if (resourceStream != null)
+                {
+                    using (var fileStream = System.IO.File.Create(tempIconPath))
+                    {
+                        resourceStream.Stream.CopyTo(fileStream);
+                    }
+                    return tempIconPath;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"ExtractXingHuiIconToTemp error: {ex.Message}");
+                return null;
             }
         }
     }

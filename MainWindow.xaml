@@ -86,11 +86,11 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Grid.Column="0" Source="Assets\AppIcon.ico" Width="80" Margin="10,20,10,242"/>
+                    <Image Grid.Column="0" x:Name="aboutImage" Source="Assets\AppIcon.ico" Width="80" Margin="10,20,10,242" Cursor="Hand" MouseLeftButtonUp="Image_MouseLeftButtonUp"/>
 
                     <StackPanel Grid.Column="1" Margin="10">
                         <TextBlock Text="喵语生成器" FontSize="18" FontWeight="Bold" Margin="0,0,0,5"/>
-                        <TextBlock Text="版本: 1.0.0" FontSize="14" Margin="0,0,0,5"/>
+                        <TextBlock Text="版本: 1.0.1" FontSize="14" Margin="0,0,0,5"/>
                         <TextBlock Text="一个用于快捷粘贴随机喵语的小工具喵~" TextWrapping="Wrap" Margin="0,0,0,10"/>
 
                         <TextBlock Text="程序作者: 香草味的纳西妲喵(VanillaNahida)" TextWrapping="Wrap" Margin="0,0,0,5"/>
