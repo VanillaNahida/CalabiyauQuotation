@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ...
+    <data name="Name1">
+      <value>John</value>
+    </data>
+    <data name="Name2" type="System.Int32">
+      <value>3</value>
+    </data>
+    <data name="Name3" type="System.Boolean">
+      <value>True</value>
+    </data>
+    ...
+    
+    The schemas for the data types are documented in the Converting 
+    topic of the System.ComponentModel namespace.
+    
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>喵语生成器 By 香草味的纳西妲喵(VanillaNahida)</value>
+  </data>
+  <data name="TabMain" xml:space="preserve">
+    <value>主界面</value>
+  </data>
+  <data name="TabSettings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="TabAbout" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="GroupRandomCatLanguage" xml:space="preserve">
+    <value>随机喵语</value>
+  </data>
+  <data name="BtnGenerate" xml:space="preserve">
+    <value>换一个喵</value>
+  </data>
+  <data name="BtnCopy" xml:space="preserve">
+    <value>一键复制喵</value>
+  </data>
+  <data name="GroupGlobalHotkey" xml:space="preserve">
+    <value>全局粘贴快捷键设置</value>
+  </data>
+  <data name="LabelHotkey" xml:space="preserve">
+    <value>快捷键:</value>
+  </data>
+  <data name="ChkClearAndPaste" xml:space="preserve">
+    <value>清空输入框并重新粘贴</value>
+  </data>
+  <data name="ChkAutoSend" xml:space="preserve">
+    <value>自动发送（粘贴后按下Enter）</value>
+  </data>
+  <data name="HintHotkey" xml:space="preserve">
+    <value>提示：推荐使用包含 Ctrl、Alt、Shift 或 Win 的组合键以避免与系统快捷键冲突</value>
+  </data>
+  <data name="GroupDictionary" xml:space="preserve">
+    <value>词库设置</value>
+  </data>
+  <data name="ChkEnableAutoDownload" xml:space="preserve">
+    <value>启动时自动更新词库</value>
+  </data>
+  <data name="LabelDictionaryUrl" xml:space="preserve">
+    <value>词库地址:</value>
+  </data>
+  <data name="BtnDownload" xml:space="preserve">
+    <value>手动更新词库</value>
+  </data>
+  <data name="BtnSaveSettings" xml:space="preserve">
+    <value>保存设置</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>喵语生成器</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本: 1.0.1</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>一个用于快捷粘贴随机喵语的小工具喵~</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>程序作者: 香草味的纳西妲喵(VanillaNahida)</value>
+  </data>
+  <data name="GitHubRepo" xml:space="preserve">
+    <value>GitHub仓库</value>
+  </data>
+  <data name="BilibiliHomepage" xml:space="preserve">
+    <value>作者B站主页</value>
+  </data>
+  <data name="QQGroups" xml:space="preserve">
+    <value>加入作者的QQ群喵（点我前往群组列表）</value>
+  </data>
+  <data name="QQGroup1" xml:space="preserve">
+    <value>香草の小黑屋（B站一群）：621457510</value>
+  </data>
+  <data name="QQGroup2" xml:space="preserve">
+    <value>香草的技术部（B站二群）：1031065631</value>
+  </data>
+  <data name="QQGroup3" xml:space="preserve">
+    <value>香草的AI工坊（B站三群）：195260107</value>
+  </data>
+  <data name="QQGroup4" xml:space="preserve">
+    <value>香草的Ubuntu服务器小屋（B站四群）：1074471035</value>
+  </data>
+  <data name="QQGroup5" xml:space="preserve">
+    <value>香草的喵喵军团：1067451762</value>
+  </data>
+  <data name="QQGroup6" xml:space="preserve">
+    <value>纳西妲厨聚集地：814061421</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="TaskbarTooltip" xml:space="preserve">
+    <value>宝宝我会一直的看着你喵~</value>
+  </data>
+  <data name="MenuItemShow" xml:space="preserve">
+    <value>显示主界面</value>
+  </data>
+  <data name="MenuItemExit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="NotificationMinimized" xml:space="preserve">
+    <value>已最小化到系统托盘喵~</value>
+  </data>
+  <data name="StatusLoaded" xml:space="preserve">
+    <value>已加载 {0} 条喵语文本</value>
+  </data>
+  <data name="StatusChangedAndPasted" xml:space="preserve">
+    <value>已更换并粘贴喵语文本</value>
+  </data>
+  <data name="StatusChanged" xml:space="preserve">
+    <value>已更换喵语文本~</value>
+  </data>
+  <data name="StatusCopied" xml:space="preserve">
+    <value>已复制到剪贴板喵</value>
+  </data>
+  <data name="StatusDownloading" xml:space="preserve">
+    <value>正在下载词库...</value>
+  </data>
+  <data name="StatusDownloadSuccess" xml:space="preserve">
+    <value>词库下载成功，共 {0} 条</value>
+  </data>
+  <data name="StatusDownloadFailedFormat" xml:space="preserve">
+    <value>词库下载失败：词库格式不合法！</value>
+  </data>
+  <data name="StatusDownloadFailed" xml:space="preserve">
+    <value>词库下载失败！</value>
+  </data>
+  <data name="StatusNoDictionaryUrl" xml:space="preserve">
+    <value>请先设置词库地址喵！</value>
+  </data>
+  <data name="StatusUnsavedChanges" xml:space="preserve">
+    <value>有尚未保存的更改喵！</value>
+  </data>
+  <data name="StatusReadyAgain" xml:space="preserve">
+    <value>已准备就绪喵</value>
+  </data>
+  <data name="MsgSettingsSaved" xml:space="preserve">
+    <value>设置已保存喵</value>
+  </data>
+  <data name="MsgSettingsSavedTitle" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="NotificationTitle" xml:space="preserve">
+    <value>星绘</value>
+  </data>
+  <data name="NotificationMessage" xml:space="preserve">
+    <value>饱饱窝会一直的看着你……</value>
+  </data>
+  <data name="GroupLanguage" xml:space="preserve">
+    <value>界面语言设置（Language Settings）</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>界面语言（Language）:</value>
+  </data>
+  <data name="LanguageAuto" xml:space="preserve">
+    <value>自动（跟随系统）</value>
+  </data>
+  <data name="LanguageChinese" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="MsgRestartRequired" xml:space="preserve">
+    <value>语言设置已更改，需要重启程序才能生效。是否立即重启？</value>
+  </data>
+  <data name="MsgRestartRequiredTitle" xml:space="preserve">
+    <value>需要重启</value>
+  </data>
+</root>

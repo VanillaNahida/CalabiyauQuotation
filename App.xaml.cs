@@ -1,5 +1,6 @@
 using System;
 using System.Windows;
+using CalabiyauQuotation.Models;
 using CalabiyauQuotation.Services;
 
 namespace CalabiyauQuotation
@@ -10,6 +11,10 @@ namespace CalabiyauQuotation
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            // 加载设置并设置语言
+            SettingsManager.Load();
+            ApplyLanguage(SettingsManager.Current.Language);
+            
             ToastNotificationHelper.Initialize();
 
             string mutexName = "CalabiyauQuotationMutex";
@@ -23,6 +28,26 @@ namespace CalabiyauQuotation
             }
 
             base.OnStartup(e);
+        }
+
+        private void ApplyLanguage(string language)
+        {
+            if (string.IsNullOrEmpty(language) || language == "auto")
+            {
+                // 使用系统语言，不需要设置
+                return;
+            }
+
+            try
+            {
+                var culture = new System.Globalization.CultureInfo(language);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+                System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"ApplyLanguage error: {ex.Message}");
+            }
         }
 
         protected override void OnExit(ExitEventArgs e)

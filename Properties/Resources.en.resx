@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ...
+    <data name="Name1">
+      <value>John</value>
+    </data>
+    <data name="Name2" type="System.Int32">
+      <value>3</value>
+    </data>
+    <data name="Name3" type="System.Boolean">
+      <value>True</value>
+    </data>
+    ...
+    
+    The schemas for the data types are documented in the Converting 
+    topic of the System.ComponentModel namespace.
+    
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Strinova Quotation Generator By VanillaNahida</value>
+  </data>
+  <data name="TabMain" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="TabSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TabAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="GroupRandomCatLanguage" xml:space="preserve">
+    <value>Random Quotation</value>
+  </data>
+  <data name="BtnGenerate" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="BtnCopy" xml:space="preserve">
+    <value>Copy Quotation</value>
+  </data>
+  <data name="GroupGlobalHotkey" xml:space="preserve">
+    <value>Global Paste Hotkey Settings</value>
+  </data>
+  <data name="LabelHotkey" xml:space="preserve">
+    <value>Hotkey:</value>
+  </data>
+  <data name="ChkClearAndPaste" xml:space="preserve">
+    <value>Clear input and paste again</value>
+  </data>
+  <data name="ChkAutoSend" xml:space="preserve">
+    <value>Auto send (press Enter after paste)</value>
+  </data>
+  <data name="HintHotkey" xml:space="preserve">
+    <value>Hint: It is recommended to use combinations including Ctrl, Alt, Shift or Win to avoid conflicts with system hotkeys</value>
+  </data>
+  <data name="GroupDictionary" xml:space="preserve">
+    <value>Dictionary Settings</value>
+  </data>
+  <data name="ChkEnableAutoDownload" xml:space="preserve">
+    <value>Auto update dictionary on startup</value>
+  </data>
+  <data name="LabelDictionaryUrl" xml:space="preserve">
+    <value>Dictionary URL:</value>
+  </data>
+  <data name="BtnDownload" xml:space="preserve">
+    <value>Update dictionary</value>
+  </data>
+  <data name="BtnSaveSettings" xml:space="preserve">
+    <value>Save Settings</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Strinova Quotation Generator</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version: 1.0.1</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>A small tool for quick pasting of random Strinova quotations~</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author: @VanillaNahida</value>
+  </data>
+  <data name="GitHubRepo" xml:space="preserve">
+    <value>GitHub Repository</value>
+  </data>
+  <data name="BilibiliHomepage" xml:space="preserve">
+    <value>Author's Bilibili Channel</value>
+  </data>
+  <data name="QQGroups" xml:space="preserve">
+    <value>Join the author's QQ groups (click me to go to group list)</value>
+  </data>
+  <data name="QQGroup1" xml:space="preserve">
+    <value>Bilibili Group 1: 621457510</value>
+  </data>
+  <data name="QQGroup2" xml:space="preserve">
+    <value>Bilibili Group 2: 1031065631</value>
+  </data>
+  <data name="QQGroup3" xml:space="preserve">
+    <value>Bilibili Group 3: 195260107</value>
+  </data>
+  <data name="QQGroup4" xml:space="preserve">
+    <value>Bilibili Group 4: 1074471035</value>
+  </data>
+  <data name="QQGroup5" xml:space="preserve">
+    <value>香草的喵喵军团: 1067451762</value>
+  </data>
+  <data name="QQGroup6" xml:space="preserve">
+    <value>纳西妲厨聚集地: 814061421</value>
+  </data>
+  <data name="StatusReady" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="TaskbarTooltip" xml:space="preserve">
+    <value>Baby, I'll always be watching you...</value>
+  </data>
+  <data name="MenuItemShow" xml:space="preserve">
+    <value>Show Main Window</value>
+  </data>
+  <data name="MenuItemExit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="NotificationMinimized" xml:space="preserve">
+    <value>Minimized to system tray~</value>
+  </data>
+  <data name="StatusLoaded" xml:space="preserve">
+    <value>Loaded {0} Quotations texts</value>
+  </data>
+  <data name="StatusChangedAndPasted" xml:space="preserve">
+    <value>Changed and pasted Quotations text</value>
+  </data>
+  <data name="StatusChanged" xml:space="preserve">
+    <value>Changed Quotations text~</value>
+  </data>
+  <data name="StatusCopied" xml:space="preserve">
+    <value>Copied to clipboard</value>
+  </data>
+  <data name="StatusDownloading" xml:space="preserve">
+    <value>Downloading dictionary...</value>
+  </data>
+  <data name="StatusDownloadSuccess" xml:space="preserve">
+    <value>Dictionary downloaded successfully, total {0} items</value>
+  </data>
+  <data name="StatusDownloadFailedFormat" xml:space="preserve">
+    <value>Dictionary download failed: Invalid dictionary format!</value>
+  </data>
+  <data name="StatusDownloadFailed" xml:space="preserve">
+    <value>Dictionary download failed!</value>
+  </data>
+  <data name="StatusNoDictionaryUrl" xml:space="preserve">
+    <value>Please set dictionary URL first!</value>
+  </data>
+  <data name="StatusUnsavedChanges" xml:space="preserve">
+    <value>There are unsaved changes!</value>
+  </data>
+  <data name="StatusReadyAgain" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="MsgSettingsSaved" xml:space="preserve">
+    <value>Settings saved</value>
+  </data>
+  <data name="MsgSettingsSavedTitle" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="NotificationTitle" xml:space="preserve">
+    <value>HuiXing</value>
+  </data>
+  <data name="NotificationMessage" xml:space="preserve">
+    <value>Baby, I'll always be watching you...</value>
+  </data>
+  <data name="GroupLanguage" xml:space="preserve">
+    <value>Interface Language Settings</value>
+  </data>
+  <data name="LabelLanguage" xml:space="preserve">
+    <value>Interface Language:</value>
+  </data>
+  <data name="LanguageAuto" xml:space="preserve">
+    <value>Auto (Follow System)</value>
+  </data>
+  <data name="LanguageChinese" xml:space="preserve">
+    <value>简体中文</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="MsgRestartRequired" xml:space="preserve">
+    <value>Language setting has been changed. Restart is required for the change to take effect. Restart now?</value>
+  </data>
+  <data name="MsgRestartRequiredTitle" xml:space="preserve">
+    <value>Restart Required</value>
+  </data>
+</root>

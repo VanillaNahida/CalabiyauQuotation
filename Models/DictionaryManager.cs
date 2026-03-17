@@ -15,7 +15,7 @@ namespace CalabiyauQuotation.Models
 
     public static class DictionaryManager
     {
-        private static readonly string DictionaryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CalabiYau_text.yml");
+        private static readonly string DictionaryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Calabiyau_text.yml");
         private static readonly Random Random = new Random();
         public static List<string> Sentences { get; private set; } = new List<string>();
 

@@ -11,6 +11,7 @@ namespace CalabiyauQuotation.Models
         public string Hotkey { get; set; } = "Ctrl+Alt+P";
         public bool ClearAndPaste { get; set; } = true;
         public bool AutoSend { get; set; } = false;
+        public string Language { get; set; } = "auto"; // auto, zh-CN, en
 
         public AppSettings Clone()
         {
@@ -20,7 +21,8 @@ namespace CalabiyauQuotation.Models
                 DictionaryUrl = DictionaryUrl,
                 Hotkey = Hotkey,
                 ClearAndPaste = ClearAndPaste,
-                AutoSend = AutoSend
+                AutoSend = AutoSend,
+                Language = Language
             };
         }
     }

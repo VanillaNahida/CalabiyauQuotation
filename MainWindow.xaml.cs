@@ -7,6 +7,7 @@ using CalabiyauQuotation.Models;
 using CalabiyauQuotation.Services;
 using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.Toolkit.Uwp.Notifications;
+using Res = CalabiyauQuotation.Properties.Resources;
 
 namespace CalabiyauQuotation
 {
@@ -39,15 +40,15 @@ namespace CalabiyauQuotation
                 DownloadDictionary();
             }
 
-            UpdateStatus($"已加载 {DictionaryManager.Sentences.Count} 条喵语文本");
+            UpdateStatus(string.Format(Res.StatusLoaded, DictionaryManager.Sentences.Count));
         }
 
         private void CopyLocalDictionary()
         {
-            string sourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CalabiYau_text.yml");
+            string sourcePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Calabiyau_text.yml");
             if (!File.Exists(sourcePath))
             {
-                string devPath = @"c:\Users\VanillaNahida\Documents\VS2022_Project\CalabiyauQuotation\src\CalabiYau_text.yml";
+                string devPath = @"c:\Users\VanillaNahida\Documents\VS2022_Project\CalabiyauQuotation\src\Calabiyau_text.yml";
                 if (File.Exists(devPath))
                 {
                     File.Copy(devPath, sourcePath);
@@ -65,6 +66,16 @@ namespace CalabiyauQuotation
             chkAutoSend.IsChecked = SettingsManager.Current.AutoSend;
             chkEnableAutoDownload.IsChecked = SettingsManager.Current.EnableAutoDownload;
             txtDictionaryUrl.Text = SettingsManager.Current.DictionaryUrl;
+            
+            // 设置语言选择
+            string language = SettingsManager.Current.Language;
+            cmbLanguage.SelectedIndex = language switch
+            {
+                "zh-CN" => 1,
+                "en" => 2,
+                _ => 0 // auto
+            };
+            
             _isUpdatingSettings = false;
             UpdateUnsavedState();
         }
@@ -99,7 +110,7 @@ namespace CalabiyauQuotation
             Dispatcher.Invoke(() =>
             {
                 txtSentence.Text = sentence;
-                UpdateStatus(SettingsManager.Current.ClearAndPaste ? "已更换并粘贴喵语文本" : "已更换喵语文本~");
+                UpdateStatus(SettingsManager.Current.ClearAndPaste ? Res.StatusChangedAndPasted : Res.StatusChanged);
             });
         }
 
@@ -119,14 +130,17 @@ namespace CalabiyauQuotation
         private bool CheckSettingsChanged()
         {
             if (_originalSettings == null || hkHotkey == null || chkClearAndPaste == null || 
-                chkAutoSend == null || chkEnableAutoDownload == null || txtDictionaryUrl == null) 
+                chkAutoSend == null || chkEnableAutoDownload == null || txtDictionaryUrl == null || cmbLanguage == null) 
                 return false;
+
+            string selectedLanguage = (cmbLanguage.SelectedItem as ComboBoxItem)?.Tag?.ToString() ?? "auto";
 
             return hkHotkey.HotKey != _originalSettings.Hotkey ||
                    (chkClearAndPaste.IsChecked ?? true) != _originalSettings.ClearAndPaste ||
                    (chkAutoSend.IsChecked ?? false) != _originalSettings.AutoSend ||
                    (chkEnableAutoDownload.IsChecked ?? false) != _originalSettings.EnableAutoDownload ||
-                   txtDictionaryUrl.Text != _originalSettings.DictionaryUrl;
+                   txtDictionaryUrl.Text != _originalSettings.DictionaryUrl ||
+                   selectedLanguage != _originalSettings.Language;
         }
 
         private void UpdateUnsavedState()
@@ -137,12 +151,12 @@ namespace CalabiyauQuotation
 
             if (_hasUnsavedChanges)
             {
-                txtStatus.Text = "有尚未保存的更改喵！";
+                txtStatus.Text = Res.StatusUnsavedChanges;
                 txtStatus.Foreground = System.Windows.Media.Brushes.Red;
             }
             else
             {
-                txtStatus.Text = "已准备就绪喵";
+                txtStatus.Text = Res.StatusReadyAgain;
                 txtStatus.Foreground = System.Windows.Media.Brushes.Black;
             }
         }
@@ -161,16 +175,16 @@ namespace CalabiyauQuotation
         {
             if (tabControl == null) return;
             
-            if (tabControl.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == "设置")
+            if (tabControl.SelectedItem is TabItem selectedTab && selectedTab.Header.ToString() == Res.TabSettings)
             {
                 SettingsManager.Load();
                 LoadSettings();
             }
-            else if (tabControl.SelectedItem is TabItem mainTab && mainTab.Header.ToString() == "主界面")
+            else if (tabControl.SelectedItem is TabItem mainTab && mainTab.Header.ToString() == Res.TabMain)
             {
                 if (txtStatus != null)
                 {
-                    txtStatus.Text = "已准备就绪喵";
+                    txtStatus.Text = Res.StatusReadyAgain;
                     txtStatus.Foreground = System.Windows.Media.Brushes.Black;
                 }
             }
@@ -179,13 +193,13 @@ namespace CalabiyauQuotation
         private void BtnGenerate_Click(object sender, RoutedEventArgs e)
         {
             GenerateRandomSentence();
-            UpdateStatus("已更换喵语文本喵");
+            UpdateStatus(Res.StatusChanged);
         }
 
         private void BtnCopy_Click(object sender, RoutedEventArgs e)
         {
             ClipboardService.CopyTextToClipboard(txtSentence.Text);
-            UpdateStatus("已复制到剪贴板喵");
+            UpdateStatus(Res.StatusCopied);
         }
 
         private async void BtnDownload_Click(object sender, RoutedEventArgs e)
@@ -198,11 +212,11 @@ namespace CalabiyauQuotation
             string url = txtDictionaryUrl.Text;
             if (string.IsNullOrEmpty(url))
             {
-                UpdateStatus("请先设置词库地址喵！");
+                UpdateStatus(Res.StatusNoDictionaryUrl);
                 return;
             }
 
-            UpdateStatus("正在下载词库...");
+            UpdateStatus(Res.StatusDownloading);
             btnDownload.IsEnabled = false;
 
             var result = await DictionaryManager.DownloadDictionaryAsync(url);
@@ -210,16 +224,16 @@ namespace CalabiyauQuotation
 
             if (result == DictionaryManager.DownloadResult.Success)
             {
-                UpdateStatus($"词库下载成功，共 {DictionaryManager.Sentences.Count} 条");
+                UpdateStatus(string.Format(Res.StatusDownloadSuccess, DictionaryManager.Sentences.Count));
                 GenerateRandomSentence();
             }
             else if (result == DictionaryManager.DownloadResult.InvalidFormat)
             {
-                UpdateStatus("词库下载失败：词库格式不合法！");
+                UpdateStatus(Res.StatusDownloadFailedFormat);
             }
             else
             {
-                UpdateStatus("词库下载失败！");
+                UpdateStatus(Res.StatusDownloadFailed);
             }
         }
 
@@ -230,12 +244,13 @@ namespace CalabiyauQuotation
             SettingsManager.Current.AutoSend = chkAutoSend.IsChecked ?? false;
             SettingsManager.Current.EnableAutoDownload = chkEnableAutoDownload.IsChecked ?? false;
             SettingsManager.Current.DictionaryUrl = txtDictionaryUrl.Text;
+            SettingsManager.Current.Language = (cmbLanguage.SelectedItem as ComboBoxItem)?.Tag?.ToString() ?? "auto";
             SettingsManager.Save();
             _originalSettings = SettingsManager.Current.Clone();
             _hasUnsavedChanges = false;
             RegisterHotKeys();
             UpdateUnsavedState();
-            MessageBox.Show("设置已保存喵", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Res.MsgSettingsSaved, Res.MsgSettingsSavedTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         // 发送Windows通知
@@ -245,7 +260,7 @@ namespace CalabiyauQuotation
             {
                 e.Cancel = true;
                 Hide();
-                ShowNotification("喵语生成器", "已最小化到系统托盘喵~");
+                ShowNotification(Res.AppName, Res.NotificationMinimized);
             }
             else
             {
@@ -308,13 +323,13 @@ namespace CalabiyauQuotation
             
             var contextMenu = new ContextMenu();
             
-            var showMenuItem = new MenuItem { Header = "显示主界面" };
+            var showMenuItem = new MenuItem { Header = Res.MenuItemShow };
             showMenuItem.Click += MenuItem_Show_Click;
             contextMenu.Items.Add(showMenuItem);
             
             contextMenu.Items.Add(new Separator());
             
-            var exitMenuItem = new MenuItem { Header = "退出" };
+            var exitMenuItem = new MenuItem { Header = Res.MenuItemExit };
             exitMenuItem.Click += MenuItem_Exit_Click;
             contextMenu.Items.Add(exitMenuItem);
             
@@ -390,7 +405,7 @@ namespace CalabiyauQuotation
                 
                 // 发送通知
                 string iconPath = ExtractXingHuiIconToTemp();
-                ToastNotificationHelper.ShowToastWithLogo("星绘", "饱饱窝会一直的看着你……", iconPath);
+                ToastNotificationHelper.ShowToastWithLogo(Res.NotificationTitle, Res.NotificationMessage, iconPath);
             }
             catch (Exception ex)
             {
@@ -447,6 +462,39 @@ namespace CalabiyauQuotation
             {
                 System.Diagnostics.Debug.WriteLine($"ExtractXingHuiIconToTemp error: {ex.Message}");
                 return null;
+            }
+        }
+
+        private void CmbLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_isUpdatingSettings) return;
+            
+            if (cmbLanguage.SelectedItem is ComboBoxItem item)
+            {
+                // 语言设置已更改，需要重启程序才能生效
+                var result = MessageBox.Show(Res.MsgRestartRequired, Res.MsgRestartRequiredTitle, MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                
+                if (result == MessageBoxResult.Yes)
+                {
+                    // 保存设置并重启程序
+                    SettingsManager.Current.Language = (cmbLanguage.SelectedItem as ComboBoxItem)?.Tag?.ToString() ?? "auto";
+                    SettingsManager.Save();
+                    
+                    // 重启程序
+                    string exePath = Environment.ProcessPath ?? System.Reflection.Assembly.GetEntryAssembly()?.Location ?? AppDomain.CurrentDomain.BaseDirectory;
+                    if (exePath.EndsWith(".dll", StringComparison.OrdinalIgnoreCase))
+                    {
+                        exePath = System.IO.Path.ChangeExtension(exePath, ".exe");
+                    }
+                    
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = exePath,
+                        UseShellExecute = true
+                    });
+                    
+                    System.Windows.Application.Current.Shutdown();
+                }
             }
         }
     }
