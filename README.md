@@ -1,5 +1,7 @@
 # 喵语生成器 / Calabiyau Quotation Generator
 
+## 本文档由AI生成
+
 ## 项目介绍 / Project Introduction
 
 喵语生成器是一个用于生成和快捷粘贴随机喵语的小工具，专为喜欢可爱喵语的用户设计。
@@ -116,9 +118,9 @@ CalabiyauQuotation/
 
 ## 许可证 / License
 
-本项目采用 MIT 许可证 - 详情见 LICENSE 文件
+本项目采用 GPL 3.0 许可证 - 详情见 LICENSE 文件
 
-This project is licensed under the MIT License - see the LICENSE file for details
+This project is licensed under the GPL-3.0 License - see the LICENSE file for details
 
 ## 联系方式 / Contact
 
